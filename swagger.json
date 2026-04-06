@@ -1,0 +1,355 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "tags": [
+    {
+        "name": "Login",
+        "description": "Users Login"
+    },
+    {
+        "name": "Parties",
+        "description": "Parties"
+    },
+    {
+        "name": "Application",
+        "description": "Document"
+    },
+    {
+      "name": "Slot",
+      "description": "Slot"
+    },
+    {
+      "name": "Location",
+      "description": "Location"
+    }
+],
+  "paths": {
+    "/v1/districts": {
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/v1/mandals/{districtId}": {
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/v1/sroDetails/{districtId}": {
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/v1/villages": {
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/v1/parties": {
+      "post": {
+        "tags": [
+          "Parties"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      },
+      "put": {
+        "tags": [
+          "Parties"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/v1/parties/updatePresenter": {
+      "put": {
+        "tags": [
+          "Parties"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/v1/parties/representative/{partyId}/{parentPartyId}": {
+      "delete": {
+        "tags": [
+          "Parties"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/v1/parties/{applicationId}/{id}": {
+      "delete": {
+        "tags": [
+          "Parties"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/v1/emailVerification": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/v1/signup": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/v1/login": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Login",
+            "in": "body",
+            "description": "Login the User",
+            "schema": {
+                "$ref": "./src/schemes/LoginRequest.json"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/api/officer/signup": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/officer/login": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/api/officer/resetPassword": {
+      "put": {
+        "tags": [
+          "Login"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/v1/documents": {
+      "post": {
+        "tags": [
+          "Application"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Application"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Application"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/documents/{documentId}": {
+      "delete": {
+        "tags": [
+          "Application"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Application"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/v1/properties": {
+      "post": {
+        "tags": [
+          "Application"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/v1/typeOfDocument": {
+      "get": {
+        "tags": [
+          "Application"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/v1/appointment": {
+      "post": {
+        "tags": [
+          "Slot"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/v1/slotBooking/{sroOfcNum}": {
+      "get": {
+        "tags": [
+          "Slot"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,194 @@
+<div style="text-align: center;">
+  <div style="display: inline-block;">
+    <img src="data:image/jpeg;base64,{{Imagedatapath}}" alt="Header image"
+      style="max-width:90px; height:90px; display: inline-block; vertical-align: middle;" />
+  </div>
+  <div style="display: inline-block; text-align: left; vertical-align: middle;">
+    <h3 style="margin-top: 15px; margin-bottom: 0; font-size:15px">REGISTRATIONS & STAMPS DEPARTMENT</h3>
+    <h5 style="margin-top: 10px; margin-left: 37px">GOVERNMENT OF ANDHRA PRADESH</h5>
+  </div>
+</div>
+
+<div style="text-align: center; border-bottom: 2px solid black;">
+  <h3 style="text-decoration: underline;">Market Value Assistance</h3>
+  <p style="margin-top: -20px;">(Duty & Fee Calculator)</p>
+  <p style="margin-left: 580px; margin-top: -40px;"><strong>Request No: {{response.[0].REQ_NO}}</strong></p>
+  <p style="position: relative; left: -280px;"><strong>SRO Name: {{mastreresponse.[0].SR_NAME}}</strong></p>
+  <p style="margin-left: 0px; margin-top: -33px;"><strong>Dist Name: {{mastreresponse.[0].DR_NAME}}</strong></p>
+  <p style="margin-left: 590px; margin-top: -35px;">
+    <strong>Date: {{DATE}}</strong>
+  </p>
+</div>
+
+<div style="margin-left: 80px;">
+  <p style="margin:5px; font-weight: bold; display: inline-block;">Nature Of The Document:</p>
+  <span style="display: inline-block;">{{response.0.TRAN_DESC}}</span>
+</div>
+
+<div style="margin-left: 80px;">
+  <p style="margin:5px; font-weight: bold; display: inline-block;">
+    Consideration Value Of The Property (in Rs):
+  </p>
+  <span style="display: inline-block;">{{response.0.CONS_VALUE}}</span>
+</div>
+
+<div style="margin-left: 80px;">
+  <h4 style="text-decoration: underline; margin:10px;">Property Details:</h4>
+  <h4 style="margin-left: 390px; margin-top: -40px;">Jurisdiction: {{mastreresponse.[0].SR_NAME}}</h4>
+</div>
+
+{{#if reqData.PP}}
+<div style="margin-left: 80px;">
+  <h4 style="margin-top: 1px; color: {{#if reqData.PP}}red{{else}}green{{/if}};">
+    NOTE: The given {{reqData.PP}} is a prohibited property.
+  </h4>
+</div>
+{{/if}}
+
+<div style="margin: 0 auto; width: 80%;">
+  <table style="border-collapse: collapse; width: 100%;">
+    <tr>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="2">Village Name:</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="6">{{response.[0].VILLAGE_NAME}}
+      </td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="2">Locality/Habitation:</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="6">{{response.[0].LOC_HAB_NAME}}
+      </td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="2">Property Type:</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="10">
+        {{proptyperesult.[0].CLASS_DESC}}</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="2">Door No:</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="2">{{response.[0].NEW_HOUSE_NO}}
+      </td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="2">
+        LPM No/Survey No :
+      </td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="2">
+        {{response.0.SURVEY_NO}}
+      </td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="2">Plot No:</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{response.[0].PLOT_NO}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="2">Flat No:</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="2">{{reqData.flatno}}</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="2">Extent:</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="2">{{response.[0].EXTENT}}
+        {{UNIT_TYPE}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="2">Total Floors:</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{response.[0].TOT_FLOOR}}</td>
+    </tr>
+    <tr>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;" rowspan="3">Boundaries:</th>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">East:</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{response.[0].EAST}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="3">West:</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{response.[0].WEST}}</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">North:</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{response.[0].NORTH}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="2">South:</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;" colspan="2">{{response.[0].SOUTH}}</td>
+    </tr>
+  </table>
+</div>
+
+{{#if STRUCTURE}}
+<div style="margin: 0 auto; width: 80%; margin-top: 20px;">
+  <table style="border-collapse: collapse; width: 100%;">
+    <tr>
+      <th colspan="6" style="border: 1px solid black; padding: 8px; text-align: left;">Structure Details:</th>
+    </tr>
+    <tr>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Floor No</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Structure Type</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Plinth</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Plinth Unit</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Stage of Construction</th>
+      <th style="border: 1px solid black; padding: 8px; text-align: left;">Age</th>
+    </tr>
+    {{#each STRUCTURE}}
+    <tr>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{floorNo}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{structureType}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{plinth}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{plinthUnit}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{stageOfCons}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">{{age}}</td>
+    </tr>
+    {{/each}}
+  </table>
+</div>
+{{/if}}
+
+<div style="margin: 0 auto; width: 80%; margin-top: 20px;">
+  <table style="border-collapse: collapse; width: 100%;">
+    <tr>
+      <th colspan="3" style="border: 1px solid black; padding: 8px; text-align: left;">Valuation Details:</th>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">Land Cost: {{response.[0].LAND_COST}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">Structure Cost: {{response.[0].STRU_COST}}
+      </td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">Market Value: {{response.[0].MARKET_VALUE}}
+      </td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">Unit Rate: {{response.[0].EXTENT_RATE}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">
+        Taxable Value: {{#if (gte response.[0].MARKET_VALUE
+        reqData.consvalue)}}{{response.[0].MARKET_VALUE}}{{else}}{{reqData.consvalue}}{{/if}}
+      </td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;"></td>
+    </tr>
+  </table>
+</div>
+
+<div style="margin: 0 auto; width: 80%; margin-top: 20px; margin-bottom: 40px;">
+  <table style="border-collapse: collapse; width: 100%;">
+    <tr>
+      <th colspan="3" style="border: 1px solid black; padding: 8px; text-align: left;">Duty & Fee Payable:</th>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">Stamp Duty: {{response.[0].SD}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">Transfer Duty: {{response.[0].TD}}</td>
+      <td style="border: 1px solid black; padding: 8px; text-align: left;">Registration Fee: {{response.[0].RF}}</td>
+    </tr>
+  </table>
+
+
+  {{#if reqData.esignStatus}}
+  <div style="
+      padding: 10px;
+      text-align: right;
+      margin-right: 50px;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end; 
+      border-bottom: 1px solid #000;">
+       <strong>Authorized Signatory</strong>
+  </div>
+
+  <div style="margin-left: 0px; text-align: center; border-bottom: 2px solid black; width: 100%;"></div>
+  <div style="margin-left: 0px;">
+    Note: 1) This is the provisional statement providing the tentative information on MV, stamp duty & fee thereon as
+    per the input given by the party.
+    2) This statement is not valid if it is found to be prohibited as per section 22A of the Registration Act.
+    3) The values shown are valid till the next Market Value Revision.
+    <br />Disclaimer: This statement is not applicable if the property is found to be prohibited.
+  </div>
+  <div style="margin-left: 0px; text-align: center; border-bottom: 2px solid black; width: 100%;"></div>
+  <div>NOTE: THIS IS AN ELECTRONICALLY SIGNED DOCUMENT. NO PHYSICAL SIGNATURE IS REQUIRED</div>
+</div>
+{{/if}}
+</div>

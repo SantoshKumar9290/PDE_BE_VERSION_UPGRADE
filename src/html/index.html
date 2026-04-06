@@ -1,0 +1,706 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form60/61</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600  ;1,700;1,800;1,900&display=swap');
+  </style>
+  <style>
+    .homeContainer {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .mainHeading {
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .mainHeading .titleText {
+      margin: 0;
+      padding: 0;
+    }
+
+    .mainHeading h3 {
+      margin: 0;
+      padding: 0;
+    }
+
+    .tableHomecon .tableData1 {
+      border: 1px solid #000;
+      width: 100%
+    }
+
+    .tableData1 {
+      border-collapse: collapse;
+      caption-side: bottom;
+      margin: 20px 0 30px;
+    }
+
+    .tableData1 tr {
+      border: 1px solid #000;
+    }
+
+    .tableData1 tr th {
+      border-right: 1px solid #000;
+    }
+
+    .lastCol {
+      border-right: none !important;
+    }
+
+    .tableData1 tr .snoCol {
+      width: 5%;
+    }
+
+    .tableData1 tr .nameCol {
+      width: 45%;
+    }
+
+    .tableData1 tr .lastCol {
+      width: 50%;
+    }
+
+    .table2 {
+      padding: 0 !important;
+    }
+
+    .table2,
+    tbody,
+    tr,
+    td {
+      border-right: 1px solid #000 !important;
+      padding: 0px 5px;
+    }
+
+    .signmaincontent {
+      margin-top: 230px;
+    }
+
+    .signmaincontent h4 {
+      text-align: center;
+    }
+
+
+    .signmaincontent .dectext {
+      text-align: left;
+    }
+
+    .signmaincontent .dectext span{
+ border-bottom: 1px dotted #7e7878;
+}
+
+    .signmainDiv {
+      margin-top: 30px;
+    }
+
+    .placeText {
+      width: 65%;
+      text-align: left;
+      float: left;
+    }
+
+    .signText {
+      width: 35%;
+      text-align: center;
+      float: right;
+    }
+    .flatcolText{
+      border-right: transparent !important;
+    }
+
+
+    .tableHomecon .informationTable {
+      border: 1px solid #000;
+      width: 100%
+    }
+
+    .informationTable {
+      border-collapse: collapse;
+      caption-side: bottom;
+      width: 100%;
+      margin: 20px 0;
+    }
+
+    .informationTable tr {
+      border: 1px solid #000;
+    }
+
+    .informationTable tr th {
+      border-right: 1px solid #000;
+    }
+    .instructionInfo{
+      margin-top: 350px;
+    }
+    .informText2{
+      margin-top: 20px;
+    }
+
+    @media print {
+            @page {
+                size: A4;
+                margin: 30px 0px;
+            }
+            body {
+                margin: 0;
+            }
+        }
+ 
+  </style>
+</head>
+
+<body>
+  <div class="homeContainer">
+    <div class="mainHeading">
+      <p class="titleText">Income-tax Rules, 1962</p>
+      <h3 class="">FORM NO. 60</h3>
+      <p class="titleText">[See second proviso to rule 114B]</p>
+      <p class="titleText">Form for declaration to be filed by an individual or a person (not being a company or firm)
+        who does not have a permanent account number and who enters into any transaction specified in rule 114B
+      </p>
+    </div>
+  <table class="tableData1" width="100%" cellspacing="0" cellpadding="8">
+      <tr rowspan="2">
+        <td>1.</td>
+        <td colspan="2">First Name</td>
+        <td colspan="2">{fName}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">Middle Name</td>
+        <td colspan="2">{mName}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">Surname</td>
+        <td colspan="2">{sName}</td>
+      </tr>
+      <tr>
+        <td>2.</td>
+        <td colspan="2">Date of Birth/Incorporation of declarant</td>
+        <td colspan="2">{dateOfBirth}</td>
+      </tr>
+      <tr>
+        <td>3.</td>
+        <td colspan="4">Father's Name (in case of individual)</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">First Name</td>
+        <td colspan="2">{fatherFName}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">Middle Name</td>
+        <td colspan="2">{fatherMName}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">Surname</td>
+        <td colspan="2">{fatherSName}</td>
+      </tr>
+
+      <tr>
+        <td width="3%">4.</td>
+        <td colspan="2" width="47%" style="padding:0px;margin: 0px;">
+          <table width="100%" style="padding: 0px; margin:0px;">
+            <tr class="flatcolText">
+              <td width="40%" style="border-right:1px solid #000">Flat/Room No.</td>
+              <td width="45%" class="flatcolText">{flatNum}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td colspan="2" width="55%" style="padding:0px;margin: 0px;">
+          <table width="100%" style="padding: 0px; margin:0px;">
+            <tr class="flatcolText">
+              <td width="5%" style="border-right:1px solid #000">5.</td>
+              <td width="40%" style="border-right:1px solid #000">Floor No .</td>
+              <td width="45%" class="flatcolText">{floorNum}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="3%">6.</td>
+        <td colspan="2" width="42%" style="padding:0px;margin: 0px;">
+          <table width="100%" style="padding: 0px; margin:0px;">
+            <tr class="flatcolText">
+              <td width="40%" style="border-right:1px solid #000">Name of premises</td>
+              <td width="45%" class="flatcolText">{premises}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td colspan="2" width="55%" style="padding:0px;margin: 0px;">
+          <table width="100%" style="padding: 0px; margin:0px;">
+            <tr class="flatcolText">
+              <td width="5%" style="border-right:1px solid #000">7.</td>
+              <td width="40%" style="border-right:1px solid #000">Block Name/No</td>
+              <td width="45%" class="flatcolText">{blockNum}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="5%">8.</td>
+        <td colspan="2" width="40%" style="padding:0px;margin: 0px;">
+          <table width="100%" style="padding: 0px; margin:0px;">
+            <tr class="flatcolText">
+              <td width="40%" style="border-right:1px solid #000">Road/Street/Lane</td>
+              <td width="45%" class="flatcolText">{roadStreet}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td colspan="2" width="55%" style="padding:0px;margin: 0px;">
+          <table width="100%" style="padding: 0px; margin:0px;">
+            <tr class="flatcolText">
+              <td width="5%" style="border-right:1px solid #000">9.</td>
+              <td width="40%" style="border-right:1px solid #000">Area/Locality</td>
+              <td width="45%" class="flatcolText">{locality}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="5%">10.</td>
+        <td colspan="2" width="40%" style="padding:0px;margin: 0px;">
+          <table width="100%" style="padding: 0px; margin:0px;">
+            <tr class="flatcolText">
+              <td width="40%" style="border-right:1px solid #000">Town/City</td>
+              <td width="45%" class="flatcolText">{town}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td colspan="2" width="55%" style="padding:0px;margin: 0px;">
+          <table width="100%" style="padding: 0px; margin:0px;">
+            <tr class="flatcolText">
+              <td width="5%" style="border-right:1px solid #000">11</td>
+              <td width="40%" style="border-right:1px solid #000">District</td>
+              <td width="45%" class="flatcolText">{district}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="5%">12</td>
+        <td colspan="2" width="40%" style="padding:0px;margin: 0px;">
+          <table width="100%" style="padding: 0px; margin:0px;">
+            <tr class="flatcolText">
+              <td width="40%" style="border-right:1px solid #000">State</td>
+              <td width="45%" class="flatcolText">{state}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td colspan="2" width="55%" style="padding:0px;margin: 0px;">
+          <table width="100%" style="padding: 0px; margin:0px;">
+            <tr class="flatcolText">
+              <td width="5%" style="border-right:1px solid #000">13</td>
+              <td width="40%" style="border-right:1px solid #000">Pin code</td>
+              <td width="45%" class="flatcolText">{pincode}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="5%">14</td>
+        <td  colspan="2" width="40%" style="padding:0px;margin: 0px;">
+          <table width="100%" style="padding: 0px; margin:0px;">
+            <tr class="flatcolText">
+              <td width="40%" style="border-right:1px solid #000">Telephone No. (with STD code)</td>
+              <td width="45%" class="flatcolText">{telNum}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td  colspan="2" width="55%" style="padding:0px;margin: 0px;">
+          <table width="100%" style="padding: 0px; margin:0px;">
+            <tr class="flatcolText">
+              <td width="5%" style="border-right:1px solid #000">15</td>
+              <td width="40%" style="border-right:1px solid #000">Mobile No.</td>
+              <td width="45%" class="flatcolText">{phoneNum}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td>16.</td>
+        <td colspan="2">Amount of transaction (Rs.)</td>
+        <td colspan="2">{tranAmount}</td>
+      </tr>
+      <tr>
+        <td>17.</td>
+        <td colspan="2">Date of transaction</td>
+        <td colspan="2">{tranDate}</td>
+      </tr>
+      <tr>
+        <td>18.</td>
+        <td colspan="2">In case of transaction in joint names,number of persons involved in thetransaction</td>
+        <td colspan="2">{jointPersNum}</td>
+      </tr>
+      <tr>
+        <td>19.</td>
+        <td colspan="2">Mode of transaction</td>
+        <td colspan="2">{modeOfTransaction}</td>
+      </tr>
+      <tr>
+        <td>20.</td>
+        <td colspan="2">Aadhaar Number (if available)</td>
+        <td colspan="2">{aadhaarNum}</td>
+      </tr>
+      <tr>
+        <td>21.</td>
+        <td colspan="2">If applied for PAN and it is not yet generated enter date of application and acknowledgement number</td>
+        <td colspan="2">{dateAndAckNum} & {AckNum}</td>
+      </tr>
+      <tr>
+        <td>22.</td>
+        <td colspan="4">If PAN not applied, fill estimated total income (including income of spouse, minor child etc. as per section 64 of Income-tax Act, 1961) for the financial year in which the above transaction is held</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">Agricultural income (Rs.)</td>
+        <td colspan="2">{agriIncome}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">Other than agricultural income (Rs.)</td>
+        <td colspan="2">{otherThanAgriIncome}</td>
+      </tr>
+
+     <tr>
+        <td>23.</td>
+        <td width="32%">Details of document beingproduced in support of identify inColumn 1 (Refer Instruction overleaf)</td>
+        <td>Document Code<br>{identityDocType}</td>
+        <td>Document ID Number<br>{identityDocID}</td>
+        <td>Name & Address of Issuing Authority<br>{identityDocAuthority}</td>
+      </tr>
+      <tr>
+        <td>24.</td>
+        <td width="32%">Details of document beingproduced in support of address inColumns 4 to 13 (Refer Instruction overleaf)</td>
+        <td>Document Code<br>{addressDocType}</td>
+        <td>Document ID Number<br>{addressDocID}</td>
+        <td>Name & Address of Issuing Authority<br>{addressDocAuthority}</td>
+      </tr>
+    </table>
+    <div class="signmaincontent">
+      <h4 class="text-center">Verification</h4>
+      <p class="dectext">I, <span>{fName} {sName}</span> do hereby declare that what is stated above is true to the best
+        of
+        my knowledge and belief. I further declare that I do not have a Permanent Account Number and my/ our
+        estimated total income (including income of spouse, minor child etc. as per section 64 of Income-tax
+        Act, 1961) computed in accordance with the provisions of Income-tax Act, 1961 for the financial year in
+        which the above transaction is held will be less than maximum amount not chargeable to tax.Verified
+        today, the <span>{date}</span> day of <span>{monthYear}</span>. </p>
+      <div class="signmainDiv">
+        <div class="placeText">
+          <p>Place: <span>{locality}</span> </p>
+        </div>
+        <div class="signText">
+          <b class="nameText">{signerName}</b>
+          <p class="nameText">(Signature of declarant)</p>
+        </div>
+      </div>
+    </div>
+
+
+
+<div class="instructionInfo">
+   <div>
+    <h5>Note:</h5>
+    <ol>
+      <li>Before signing the declaration, the declarant should satisfy himself that the information furnished in this form is true, correct and complete in all respects. Any person making a false statement in the declaration shall be liable to prosecution under section 277 of the Income-tax Act, 1961 and on conviction be punishable,
+        <ul>
+          <li>in a case where tax sought to be evaded exceeds twenty-five lakh rupees, with rigorous imprisonment which shall not be less than six months but which may extend to seven years and with fine;</li>
+          <li>in any other case, with rigorous imprisonment which shall not be less than three months but which may extend to two years and with fine.</li>
+        </ul>
+      </li>
+       <li>The person accepting the declaration shall not accept the declaration where the amount of income of the nature referred to in item 22b exceeds the maximum amount which is not chargeable to tax, unless PAN is applied for and column 21 is duly filled.</li>
+    </ol>
+  </div> 
+
+  <div>
+    <h5>Instruction:</h5>
+    <ol>
+      <li>Documents which can be produced in support of identity and address (not required if applied for PAN and item 20 is filled):-
+        <table class="informationTable">
+          <thead>
+            <tr>
+              <th>Sl</th>
+              <th>Nature of Document</th>
+              <th>Document Code</th>
+              <th>Proof of Identity</th>
+              <th>Proof of Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>A</b></td>
+              <td><b>For Individuals and HUF</b></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>1. AADHAR card</td>
+              <td>01</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>2. Bank/Post office passbook bearing photograph of the person</td>
+              <td>02</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>3. Electors photo identity card</td>
+              <td>03</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>4. Ration/Public Distribution System card bearing photograph of the person</td>
+              <td>04</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>5. Driving License</td>
+              <td>05</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>6. Passport</td>
+              <td>06</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>7. Pensioner Photocard</td>
+              <td>07</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>8. National Rural Employment Guarantee Scheme (NREGS) Job card</td>
+              <td>08</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>9. Caste or Domicile certificate bearing photo of the person</td>
+              <td>09</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>10. Certificate of identity/address signed by a Member of Parliament or Member of Legislative Assembly or Municipal Councillor or a Gazetted Officer as per annexure A prescribed in Form 49A</td>
+              <td>10</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+
+             <tr>
+              <td></td>
+              <td>11. Certificate from employer as per annexure B  prescribed in Form 49A</td>
+              <td>11</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+
+             <tr>
+              <td></td>
+              <td>12.Kisan passbook bearing photo </td>
+              <td>12</td>
+              <td>Yes</td>
+              <td>No</td>
+            </tr>
+
+             <tr>
+              <td></td>
+              <td>13. Arms license</td>
+              <td>13</td>
+              <td>Yes</td>
+              <td>No</td>
+            </tr>
+
+             <tr>
+              <td></td>
+              <td>14. Central Government Health Scheme/Ex-servicemen Contributory Health Scheme card</td>
+              <td>14</td>
+              <td>Yes</td>
+              <td>No</td>
+            </tr>
+
+             <tr>
+              <td></td>
+              <td>15. Photo identity card issued by the government./ Public Sector Undertaking</td>
+              <td>15</td>
+              <td>Yes</td>
+              <td>No</td>
+            </tr>
+
+             <tr>
+              <td></td>
+              <td>16. Electricity bill (Not more than 3 months old)</td>
+              <td>16</td>
+              <td>No</td>
+              <td>Yes</td>
+            </tr>
+
+             <tr>
+              <td></td>
+              <td>17. Landline Telephone bill (Not more than 3 months old)</td>
+              <td>17</td>
+              <td>No</td>
+              <td>Yes</td>
+            </tr>
+
+             <tr>
+              <td></td>
+              <td>18. Water bill (Not more than 3 months old)</td>
+              <td>18</td>
+              <td>No</td>
+              <td>Yes</td>
+            </tr>
+
+             <tr>
+              <td></td>
+              <td>19. Consumer gas card/book or piped gas bill (Not more than 3 months old)</td>
+              <td>19</td>
+              <td>No</td>
+              <td>Yes</td>
+            </tr>
+
+
+             <tr>
+              <td></td>
+              <td>20. Bank Account Statement (Not more than 3 months old)</td>
+              <td>20</td>
+              <td>No</td>
+              <td>Yes</td>
+            </tr>
+
+             <tr>
+              <td></td>
+              <td>21. Credit Card statement (Not more than 3 months old)</td>
+              <td>21</td>
+              <td>No</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>22. Depository Account Statement (Not more than 3 months old)</td>
+              <td>22</td>
+              <td>No</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>23. Property registration document</td>
+              <td>23</td>
+              <td>No</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>24. Allotment letter of accommodation from Government</td>
+              <td>24</td>
+              <td>No</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>25. Passport of spouse bearing name of the person</td>
+              <td>25</td>
+              <td>No</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>26. Property tax payment receipt (Not more than one year old)</td>
+              <td>26</td>
+              <td>No</td>
+              <td>Yes</td>
+            </tr>
+
+            <tr>
+              <td><b>B</b></td>
+              <td><b>For Association of persons (Trusts)</b></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>Copy of trust deed or copy of certificate  of registration issued by Charity Commissioner</td>
+              <td>27</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+
+              <tr>
+              <td><b>C</b></td>
+              <td><b>For Association of persons (other than Trusts) or Body of Individuals or Local authority or Artificial Juridical Person)</b></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+             <tr>
+              <td></td>
+              <td>Copy of Agreement or copy of certificate of registration issued by Charity commissioner or Registrar of Cooperative society or any other competent authority or any other document originating from any Central or State Government Department establishing identity and address of such person.</td>
+              <td>28</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </li>
+      <li class="informText2">In case of a transaction in the name of a Minor, any of the above mentioned documents as proof of Identity and Address of any of parents/guardians of such minor shall be deemed to be the proof of identity and address for the minor declarant, and the declaration should be signed by the parent/guardian.</li>
+      <li>For HUF any document in the name of Karta of HUF is required.</li>
+      <li>In case the transaction is in the name of more than one person the total number of persons should be mentioned in S1. No. 18 and the total amount of transaction is to be filled in S1. No. 16.In case the estimated total income in column 22b exceeds the maximum amount not chargeable to tax the person should apply for PAN, fi11 out item 21 and furnish proof of submission of application.</li>
+    </ol>
+  </div>
+</div>
+  </div>
+</body>
+</html>

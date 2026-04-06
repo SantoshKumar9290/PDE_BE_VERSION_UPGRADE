@@ -1,0 +1,556 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "PDE Project CRUD",
+        "description": "PDE Application API",
+        "license": {
+            "name": "PDE CRUD",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:8000",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Login",
+            "description": "Users Login"
+        },
+        {
+            "name": "Parties",
+            "description": "Parties"
+        },
+        {
+            "name": "Application",
+            "description": "Document"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/v1/login": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "description": "Login the user system",
+                "parameters": [
+                    {
+                        "name": "Login",
+                        "in": "body",
+                        "description": "Login the User",
+                        "schema": {
+                            "$ref": "#/definitions/Login/request"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Login Succeded",
+                        "schema": {
+                            "$ref": "#/definitions/Login/response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/parties": {
+            "post": {
+                "tags": [
+                    "Parties"
+                ],
+                "description": "Create Parties",
+                "parameters": [
+                    {
+                        "name": "Create Parties",
+                        "in": "body",
+                        "description": "Create the Party",
+                        "schema": {
+                            "$ref": "#/definitions/Parties/CreateParties/request"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Party is created",
+                        "schema": {
+                            "$ref": "#/definitions/Parties/CreateParties/response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/parties/updatePresenter": {
+            "put": {
+                "tags": [
+                    "Parties"
+                ],
+                "description": "Update Presenter",
+                "parameters": [
+                    {
+                        "name": "Update Presenter",
+                        "in": "body",
+                        "description": "Update the Presenter",
+                        "schema": {
+                            "$ref": "#/definitions/Parties/UpdatePresenter/request"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated Presenter Succesfully",
+                        "schema": {
+                            "$ref": "#/definitions/Parties/UpdatePresenter/response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/parties/representative": {
+            "delete": {
+                "tags": [
+                    "Parties"
+                ],
+                "description": "Delete Representative",
+                "parameters": [
+                    {
+                        "name": "Delete Representative",
+                        "in": "body",
+                        "description": "Delete the Representative",
+                        "schema": {
+                            "$ref": "#/definitions/Parties/DeleteRepresentative/request"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Delete Representative Succesfully",
+                        "schema": {
+                            "$ref": "#/definitions/Parties/DeleteRepresentative/response"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/documents/:documentId": {
+            "put": {
+                "tags": [
+                    "Application"
+                ],
+                "description": "Delete Application",
+                "parameters": [
+                    {
+                        "name": "documentId",
+                        "in": "path",
+                        "description": "Delete Application",
+                        "schema": {
+                            "$ref": "#/definitions/Document/DeleteDocument/request"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Deleted Application Successfully",
+                        "schema": {
+                            "$ref": "#/definitions/Document/DeleteDocument/response"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Login": {
+            "request": {
+                "required": [
+                    "loginEmail",
+                    "loginPassword"
+                ],
+                "properties": {
+                    "loginEmail": {
+                        "type": "string"
+                    },
+                    "loginPassword": {
+                        "type": "string"
+                    }
+                }
+            },
+            "response": {
+                "required": [
+                    "status",
+                    "code",
+                    "data"
+                ],
+                "properties": {
+                    "status": {
+                        "type": "string"
+                    },
+                    "code": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "required": [
+                            "_id",
+                            "userId",
+                            "loginEmail",
+                            "loginMobile",
+                            "token"
+                        ],
+                        "properties": {
+                            "_id": {
+                                "type": "string"
+                            },
+                            "userId": {
+                                "type": "string"
+                            },
+                            "loginEmail": {
+                                "type": "string"
+                            },
+                            "loginMobile": {
+                                "type": "string"
+                            },
+                            "loginType": {
+                                "type": "string"
+                            },
+                            "token": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Parties": {
+            "CreateParties": {
+                "request": {
+                    "required": [
+                        "name",
+                        "relationType",
+                        "relationName",
+                        "relationType",
+                        "age",
+                        "panNoOrForm60or61",
+                        "tan",
+                        "aadhaar",
+                        "representType",
+                        "parentPartyId",
+                        "email",
+                        "phone",
+                        "address",
+                        "applicationId"
+                    ],
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "relationType": {
+                            "type": "string"
+                        },
+                        "relationName": {
+                            "type": "string"
+                        },
+                        "age": {
+                            "type": "number"
+                        },
+                        "panNoOrForm60or61": {
+                            "type": "string"
+                        },
+                        "tan": {
+                            "type": "string"
+                        },
+                        "aadhaar": {
+                            "type": "string"
+                        },
+                        "representType": {
+                            "type": "string"
+                        },
+                        "parentPartyId": {
+                            "type": "string"
+                        },
+                        "email": {
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "string"
+                        },
+                        "address": {
+                            "type": "string"
+                        },
+                        "applicationId": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "response": {
+                    "required": [
+                        "status",
+                        "code",
+                        "data"
+                    ],
+                    "properties": {
+                        "status": {
+                            "type": "string"
+                        },
+                        "code": {
+                            "type": "string"
+                        },
+                        "data": {
+                            "required": [
+                                "name",
+                                "relationType",
+                                "relationName",
+                                "relationType",
+                                "age",
+                                "panNoOrForm60or61",
+                                "tan",
+                                "aadhaar",
+                                "representType",
+                                "parentPartyId",
+                                "email",
+                                "phone",
+                                "address",
+                                "applicationId"
+                            ],
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "relationType": {
+                                    "type": "string"
+                                },
+                                "relationName": {
+                                    "type": "string"
+                                },
+                                "represent": {
+                                    "type": "array"
+                                },
+                                "age": {
+                                    "type": "number"
+                                },
+                                "panNoOrForm60or61": {
+                                    "type": "string"
+                                },
+                                "tan": {
+                                    "type": "string"
+                                },
+                                "aadhaar": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "phone": {
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "type": "string"
+                                },
+                                "isPresenter": {
+                                    "type": "boolean"
+                                },
+                                "_id": {
+                                    "type": "string"
+                                },
+                                "__v": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "UpdatePresenter": {
+                "request": {
+                    "required": [
+                        "partyId",
+                        "applicationId"
+                    ],
+                    "properties": {
+                        "partyId": {
+                            "type": "string"
+                        },
+                        "applicationId": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "response": {
+                    "required": [
+                        "status",
+                        "code",
+                        "data"
+                    ],
+                    "properties": {
+                        "status": {
+                            "type": "string"
+                        },
+                        "code": {
+                            "type": "string"
+                        },
+                        "data": {
+                            "required": [
+                                "name",
+                                "relationType",
+                                "relationName",
+                                "relationType",
+                                "age",
+                                "panNoOrForm60or61",
+                                "tan",
+                                "aadhaar",
+                                "representType",
+                                "parentPartyId",
+                                "email",
+                                "phone",
+                                "address",
+                                "applicationId"
+                            ],
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "relationType": {
+                                    "type": "string"
+                                },
+                                "relationName": {
+                                    "type": "string"
+                                },
+                                "represent": {
+                                    "type": "array"
+                                },
+                                "age": {
+                                    "type": "number"
+                                },
+                                "panNoOrForm60or61": {
+                                    "type": "string"
+                                },
+                                "tan": {
+                                    "type": "string"
+                                },
+                                "aadhaar": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "phone": {
+                                    "type": "string"
+                                },
+                                "address": {
+                                    "type": "string"
+                                },
+                                "isPresenter": {
+                                    "type": "boolean"
+                                },
+                                "__v": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "DeleteRepresentative": {
+                "request": {
+                    "required": [
+                        "partyId",
+                        "parentPartyId"
+                    ],
+                    "properties": {
+                        "partyId": {
+                            "type": "string"
+                        },
+                        "parentPartyId": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "response": {
+                    "required": [
+                        "status",
+                        "code",
+                        "data"
+                    ],
+                    "properties": {
+                        "status": {
+                            "type": "string"
+                        },
+                        "code": {
+                            "type": "string"
+                        },
+                        "data": {
+                            "required": [
+                                "status"
+                            ],
+                            "properties": {
+                               "status": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "Document": {
+            "DeleteDocument": {
+                "request": {
+                    "required": [
+                        "documentId"
+                    ],
+                    "properties": {
+                        "documentId": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "response": {
+                    "required": [
+                        "status",
+                        "code",
+                        "data"
+                    ],
+                    "properties": {
+                        "status": {
+                            "type": "string"
+                        },
+                        "code": {
+                            "type": "string"
+                        },
+                        "data": {
+                            "required": [
+                                "status"
+                            ],
+                            "properties": {
+                               "status": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
