@@ -26,28 +26,45 @@ pipeline {
             }
         }
 
-        stage('SonarQube Scan') {
+        stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('Sonar-Server') {
-                    sh """
+                    sh '''
                         /opt/sonarscanner/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner \
-                        -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
+                        -Dsonar.projectKey=$SONAR_PROJECT_KEY \
                         -Dsonar.sources=. \
-                        -Dsonar.host.url=${SONAR_HOST_URL} \
+                        -Dsonar.host.url=$SONAR_HOST_URL \
                         -Dsonar.login=$SONAR_AUTH_TOKEN
-                    """
+                    '''
+                }
+            }
+        }
+
+        stage('Quality Gate (Optional but Recommended)') {
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: false
                 }
             }
         }
 
         stage('Deploy with PM2') {
             steps {
-                sh """
-                    pm2 delete ${APP_NAME} || true
+                sh '''
+                    pm2 delete pde_be_app || true
                     pm2 start ecosystem.config.js
                     pm2 save
-                """
+                '''
             }
+        }
+    }
+
+    post {
+        success {
+            echo "✅ Build + Scan + Deployment Successful"
+        }
+        failure {
+            echo "❌ Pipeline Failed"
         }
     }
 }
