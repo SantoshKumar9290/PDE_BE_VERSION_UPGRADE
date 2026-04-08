@@ -3,8 +3,9 @@ pipeline {
 
     environment {
         APP_NAME = "pde_be_app"
-        SONAR_PROJECT_KEY = "pde_be_version_upgrade"
+        SONAR_PROJECT_KEY = "PDE_BE_VERSION_UPGRADE"   // ✅ FIXED (uppercase)
         SONAR_HOST_URL = "http://10.10.120.190:9000"
+        PATH = "/usr/bin:/usr/local/bin:${env.PATH}"
     }
 
     stages {
@@ -13,6 +14,15 @@ pipeline {
             steps {
                 git branch: 'main',
                 url: 'https://github.com/SantoshKumar9290/PDE_BE_VERSION_UPGRADE.git'
+            }
+        }
+
+        stage('Check Node') {
+            steps {
+                sh '''
+                    node -v
+                    npm -v
+                '''
             }
         }
 
@@ -36,7 +46,7 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy with PM2') {
             steps {
                 sh '''
                     pm2 delete pde_be_app || true
@@ -44,6 +54,15 @@ pipeline {
                     pm2 save
                 '''
             }
+        }
+    }
+
+    post {
+        success {
+            echo "✅ Build + Sonar + Deploy SUCCESS"
+        }
+        failure {
+            echo "❌ Pipeline FAILED"
         }
     }
 }
