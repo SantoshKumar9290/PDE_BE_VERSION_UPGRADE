@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs "Node20"
-    }
-
     environment {
         APP_NAME = "pde_be_app"
         SONAR_PROJECT_KEY = "pde_be_version_upgrade"
@@ -26,7 +22,7 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
+        stage('SonarQube Scan') {
             steps {
                 withSonarQubeEnv('Sonar-Server') {
                     sh '''
@@ -40,15 +36,7 @@ pipeline {
             }
         }
 
-        stage('Quality Gate (Optional but Recommended)') {
-            steps {
-                timeout(time: 5, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: false
-                }
-            }
-        }
-
-        stage('Deploy with PM2') {
+        stage('Deploy') {
             steps {
                 sh '''
                     pm2 delete pde_be_app || true
@@ -56,15 +44,6 @@ pipeline {
                     pm2 save
                 '''
             }
-        }
-    }
-
-    post {
-        success {
-            echo "✅ Build + Scan + Deployment Successful"
-        }
-        failure {
-            echo "❌ Pipeline Failed"
         }
     }
 }
